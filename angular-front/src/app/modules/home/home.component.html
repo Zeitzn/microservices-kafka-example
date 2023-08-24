@@ -1,43 +1,91 @@
-<input placeholder="Buscar" type="text" (input)="search($event)">
-<table>
-  <thead>
-    <th>firstName</th>
-    <th>lastName</th>
-    <th>city</th>
-    <th>country</th>
-    <th>firstName2</th>
-    <th>lastName2</th>
-    <th>email</th>
-    <th>age</th>
-    <th>random</th>
-    <th>randomFloat</th>
-    <th>bool</th>
-    <th>date</th>
-    <th>regEx</th>
-    <th>enumValue</th>
-    <th>eltList</th>
-    <th>createdDate</th>
-    <th>modifiedDate</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let data of xmlInfoList;">
-      <td>{{data.firstName}}</td>
-      <td>{{data.lastName}}</td>
-      <td>{{data.city}}</td>
-      <td>{{data.country}}</td>
-      <td>{{data.firstName2}}</td>
-      <td>{{data.lastName2}}</td>
-      <td>{{data.email}}</td>
-      <td>{{data.age}}</td>
-      <td>{{data.random}}</td>
-      <td>{{data.randomFloat}}</td>
-      <td>{{data.bool}}</td>
-      <td>{{data.date}}</td>
-      <td>{{data.regEx}}</td>
-      <td>{{data.enumValue}}</td>
-      <td>{{data.eltList}}</td>
-      <td>{{data.createdDate | date: 'dd/MM/yyyy'}}</td>
-      <td>{{data.modifiedDate | date: 'dd/MM/yyyy'}}</td>
-    </tr>
-  </tbody>
-</table>
+<mat-card>
+  <mat-card-header>
+    <h1>Información de los Documentos</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field class="example-full-width">
+      <mat-label>Buscar</mat-label>
+      <input matInput (input)="search($event)" placeholder="Escribe aquí ...">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="firstName">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Firstname </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="lastName">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Lastname </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="city">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> City </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+      <ng-container matColumnDef="country">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Country </th>
+        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+      </ng-container>
+      <ng-container matColumnDef="firstName2">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Firstname 2 </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName2}} </td>
+      </ng-container>
+      <ng-container matColumnDef="lastName2">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Lastname 2 </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName2}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="age">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Age </th>
+        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+      </ng-container>
+      <ng-container matColumnDef="random">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Random </th>
+        <td mat-cell *matCellDef="let element"> {{element.random}} </td>
+      </ng-container>
+      <ng-container matColumnDef="randomFloat">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Random Float </th>
+        <td mat-cell *matCellDef="let element"> {{element.randomFloat}} </td>
+      </ng-container>
+      <ng-container matColumnDef="bool">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Bool </th>
+        <td mat-cell *matCellDef="let element"> {{element.bool}} </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="regEx">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> RegEx </th>
+        <td mat-cell *matCellDef="let element"> {{element.regEx}} </td>
+      </ng-container>
+      <ng-container matColumnDef="enumValue">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Enum Value </th>
+        <td mat-cell *matCellDef="let element"> {{element.enumValue}} </td>
+      </ng-container>
+      <ng-container matColumnDef="eltList">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Elt List </th>
+        <td mat-cell *matCellDef="let element"> {{element.eltList}} </td>
+      </ng-container>
+      <ng-container matColumnDef="createdDate">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Created Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="modifiedDate">
+        <th style="width: 15% !important;" mat-header-cell *matHeaderCellDef> Last Modified </th>
+        <td mat-cell *matCellDef="let element"> {{element.modifiedDate}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator *ngIf="xmlInfoList != undefined" [length]="xmlInfoList.totalElements" [pageSize]="size"
+      [pageIndex]="page" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Selecciona la página"
+      (page)="showMoreResults($event)">
+    </mat-paginator>
+  </mat-card-content>
+</mat-card>
