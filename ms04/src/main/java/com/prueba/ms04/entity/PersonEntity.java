@@ -1,5 +1,6 @@
 package com.prueba.ms04.entity;
 import com.ms.commons.model.XmlModel;
+import com.prueba.ms04.dto.response.PersonResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -78,25 +79,27 @@ public class PersonEntity {
         modifiedDate = LocalDateTime.now();
     }
 
-    public static PersonEntity fromModel(XmlModel xmlModel) {
-        String eltList = String.join(",", xmlModel.getEltList());
-        return PersonEntity.builder()
-                .fileName(xmlModel.getFileName())
-                .firstName(xmlModel.getFirstName())
-                .lastName(xmlModel.getLastName())
-                .city(xmlModel.getCity())
-                .country(xmlModel.getCountry())
-                .firstName2(xmlModel.getFirstName2())
-                .lastName2(xmlModel.getLastName2())
-                .email(xmlModel.getEmail())
-                .age(xmlModel.getAge())
-                .random(xmlModel.getRandom())
-                .randomFloat(xmlModel.getRandomFloat().toString())
-                .bool(xmlModel.getBool())
-                .date(xmlModel.getDate())
-                .regEx(xmlModel.getRegEx())
-                .enumValue(xmlModel.getEnumValue())
-                .eltList(eltList)
+    public static PersonResponse toDto(PersonEntity person) {
+        return PersonResponse.builder()
+                .fileName(person.getFileName())
+                .firstName(person.getFirstName())
+                .lastName(person.getLastName())
+                .city(person.getCity())
+                .country(person.getCountry())
+                .firstName2(person.getFirstName2())
+                .lastName2(person.getLastName2())
+                .email(person.getEmail())
+                .age(person.getAge())
+                .random(person.getRandom())
+                .randomFloat(person.getRandomFloat())
+                .bool(person.getBool())
+                .date(person.getDate())
+                .regEx(person.getRegEx())
+                .enumValue(person.getEnumValue())
+                .eltList(person.getEltList())
+                .createdDate(person.getCreatedDate())
+                .modifiedDate(person.getModifiedDate())
                 .build();
     }
+
 }

@@ -1,5 +1,6 @@
 package com.prueba.ms04.controller;
 
+import com.prueba.ms04.dto.response.PersonResponse;
 import com.prueba.ms04.entity.PersonEntity;
 import com.prueba.ms04.service.IPersonService;
 import org.springframework.data.domain.Page;
@@ -20,16 +21,19 @@ public class PersonController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Page<PersonEntity>> findPaginated(Pageable pageable) {
-        return new ResponseEntity<>(service.findAll(pageable), HttpStatus.OK);
+    public ResponseEntity<Page<PersonResponse>> findPaginated(Pageable pageable) {
+        Page<PersonEntity> result = service.findAll(pageable);
+        Page<PersonResponse> response = result.map(PersonEntity::toDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Page<PersonEntity>> search(
+    public ResponseEntity<Page<PersonResponse>> search(
             @RequestParam(required = false) String value,
             Pageable pageable
     ) {
-
-        return new ResponseEntity<>(service.search(value, pageable), HttpStatus.OK);
+        Page<PersonEntity> result = service.search(value, pageable);
+        Page<PersonResponse> response = result.map(PersonEntity::toDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

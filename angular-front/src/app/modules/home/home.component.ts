@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { XmlDataResponse } from 'src/app/@core/models/response/XmlDataResponse';
 import { XmlService } from 'src/app/@core/services/xml.service';
@@ -8,6 +8,7 @@ import { PageableModel } from 'src/app/@core/models/pageable-model';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
   public xmlInfoList: PageableModel<XmlDataResponse[]> | undefined = undefined;
