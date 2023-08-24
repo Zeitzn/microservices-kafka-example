@@ -1,8 +1,6 @@
 package com.prueba.ms05.service;
 
 import com.ms.commons.model.XmlModel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -20,7 +18,6 @@ import java.util.List;
 
 @Service
 public class XmlService {
-    private final Logger log = LoggerFactory.getLogger(XmlService.class);
     private static final String BASE_XML = "https://test-ms-kafka.s3.amazonaws.com/";
 
     private static final Integer NUMBER_OF_FILES = 5000;

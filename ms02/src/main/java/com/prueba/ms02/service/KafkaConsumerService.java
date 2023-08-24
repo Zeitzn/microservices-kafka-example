@@ -16,7 +16,8 @@ public class KafkaConsumerService {
     }
 
     @KafkaListener(topics = "xml_topic", groupId = "group1")
-    public void flightEventConsumer(XmlModel message) {
+    public void consumerEvent(XmlModel message) {
+        log.info("Mensaje recibido -> {}", message);
         producerService.send(message);
     }
 }
