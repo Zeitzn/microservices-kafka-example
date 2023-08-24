@@ -90,18 +90,18 @@ services:
     networks:
       - ms-network
 
-  ms05:
-    image: zeitzn/ms05:latest
-    container_name: ms05
-    depends_on:
-      - kafka1
-    mem_limit: 800m
-    ports:
-      - "8085:8085"
-    environment:
-      KAFKA_BOOTSTRAP_SERVERS_PRODUCER: kafka1:9092
-    networks:
-      - ms-network
+  # ms05:
+  #   image: zeitzn/ms05:latest
+  #   container_name: ms05
+  #   depends_on:
+  #     - kafka1
+  #   mem_limit: 800m
+  #   ports:
+  #     - "8085:8085"
+  #   environment:
+  #     KAFKA_BOOTSTRAP_SERVERS_PRODUCER: kafka1:9092
+  #   networks:
+  #     - ms-network
 
   # ms01:
   #   image: zeitzn/ms01:latest

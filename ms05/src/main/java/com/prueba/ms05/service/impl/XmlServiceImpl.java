@@ -17,6 +17,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Slf4j
 @Service
@@ -27,12 +29,9 @@ public class XmlServiceImpl implements IXmlService {
 
     @Override
     public List<String> getXmlFileNames() {
-        List<String> fileNames = new ArrayList<>(NUMBER_OF_FILES);
-        for (int i = 0; i < NUMBER_OF_FILES; i++) {
-            String fileName = "myXMLFile" + i + ".xml";
-            fileNames.add(fileName);
-        }
-        return fileNames;
+        return IntStream.range(0, NUMBER_OF_FILES)
+                .mapToObj(i -> "myXMLFile" + i + ".xml")
+                .toList();
     }
 
     @Override
