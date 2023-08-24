@@ -1,16 +1,15 @@
-package com.prueba.ms05;
+package com.prueba.ms02;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.kafka.annotation.EnableKafka;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableKafka
-@EnableScheduling
 @SpringBootApplication
-public class Ms05Application {
+public class Ms02Application {
+
 	public static void main(String[] args) {
-		SpringApplication.run(Ms05Application.class, args);
+		SpringApplication.run(Ms02Application.class, args);
 	}
 
 }

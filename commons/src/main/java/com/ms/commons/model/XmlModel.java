@@ -1,9 +1,6 @@
-package com.prueba.ms05.model;
+package com.ms.commons.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -11,7 +8,8 @@ import java.util.List;
 @Setter
 @Builder
 @AllArgsConstructor
-public class XmlData {
+@NoArgsConstructor
+public class XmlModel {
     private String fileName;
     private String firstName;
     private String lastName;

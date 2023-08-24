@@ -9,14 +9,20 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.prueba</groupId>
-	<artifactId>ms05</artifactId>
+	<artifactId>ms02</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms05</name>
-	<description>Microservicio que realiza lectura de varios XML cada 3 minutos por cada XML.</description>
+	<name>ms02</name>
+	<description>Microservicio consumer de kafka1 y producer de kafka2</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

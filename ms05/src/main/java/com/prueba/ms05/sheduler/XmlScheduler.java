@@ -1,6 +1,6 @@
 package com.prueba.ms05.sheduler;
 
-import com.prueba.ms05.model.XmlData;
+import com.ms.commons.model.XmlModel;
 import com.prueba.ms05.service.KafkaProducerService;
 import com.prueba.ms05.service.XmlService;
 import org.slf4j.Logger;
@@ -25,7 +25,7 @@ public class XmlScheduler {
         List<String> xmlFileNames = xmlProcessingService.getXmlFileNames();
         xmlFileNames.stream().parallel().forEach(xmlFileName -> {
             try{
-                XmlData xmlData = xmlProcessingService.read(xmlFileName);
+                XmlModel xmlData = xmlProcessingService.read(xmlFileName);
 
                 kafkaProducerService.send(xmlData);
             } catch(Exception ex) {

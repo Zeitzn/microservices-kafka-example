@@ -1,6 +1,6 @@
 package com.prueba.ms05.service;
 
-import com.prueba.ms05.model.XmlData;
+import com.ms.commons.model.XmlModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -32,19 +32,19 @@ public class XmlService {
         }
         return fileNames;
     }
-    public XmlData read(String xmlFileName) throws IOException, ParserConfigurationException, SAXException {
+    public XmlModel read(String xmlFileName) throws IOException, ParserConfigurationException, SAXException {
         URL url = new URL(BASE_XML + xmlFileName);
         InputStream inputStream = url.openStream();
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(inputStream);
-        XmlData xmlData = parseXml(document.getDocumentElement());
+        XmlModel xmlData = parseXml(document.getDocumentElement());
         xmlData.setFileName(xmlFileName);
         return xmlData;
     }
-    private static XmlData parseXml(Element root) {
-        XmlData.XmlDataBuilder xmlDataBuilder = XmlData.builder();
+    private static XmlModel parseXml(Element root) {
+        XmlModel.XmlModelBuilder xmlDataBuilder = XmlModel.builder();
         Element personElement = (Element) root.getElementsByTagName("person").item(0);
         String firstname2 = personElement.getAttribute("firstname2");
         xmlDataBuilder.firstName(personElement.getAttribute("firstname"));
