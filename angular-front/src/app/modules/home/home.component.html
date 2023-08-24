@@ -1,0 +1,43 @@
+<input placeholder="Buscar" type="text" (input)="search($event)">
+<table>
+  <thead>
+    <th>firstName</th>
+    <th>lastName</th>
+    <th>city</th>
+    <th>country</th>
+    <th>firstName2</th>
+    <th>lastName2</th>
+    <th>email</th>
+    <th>age</th>
+    <th>random</th>
+    <th>randomFloat</th>
+    <th>bool</th>
+    <th>date</th>
+    <th>regEx</th>
+    <th>enumValue</th>
+    <th>eltList</th>
+    <th>createdDate</th>
+    <th>modifiedDate</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of xmlInfoList;">
+      <td>{{data.firstName}}</td>
+      <td>{{data.lastName}}</td>
+      <td>{{data.city}}</td>
+      <td>{{data.country}}</td>
+      <td>{{data.firstName2}}</td>
+      <td>{{data.lastName2}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.age}}</td>
+      <td>{{data.random}}</td>
+      <td>{{data.randomFloat}}</td>
+      <td>{{data.bool}}</td>
+      <td>{{data.date}}</td>
+      <td>{{data.regEx}}</td>
+      <td>{{data.enumValue}}</td>
+      <td>{{data.eltList}}</td>
+      <td>{{data.createdDate | date: 'dd/MM/yyyy'}}</td>
+      <td>{{data.modifiedDate | date: 'dd/MM/yyyy'}}</td>
+    </tr>
+  </tbody>
+</table>
