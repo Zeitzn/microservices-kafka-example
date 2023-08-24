@@ -3,11 +3,13 @@ package com.prueba.ms01.service.impl;
 import com.prueba.ms01.entity.PersonEntity;
 import com.prueba.ms01.repository.IPersonRepository;
 import com.prueba.ms01.service.IPersonService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class PersonServiceImpl implements IPersonService {
     private final IPersonRepository repository;

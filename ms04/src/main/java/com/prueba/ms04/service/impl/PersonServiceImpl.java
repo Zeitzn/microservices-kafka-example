@@ -3,12 +3,14 @@ package com.prueba.ms04.service.impl;
 import com.prueba.ms04.entity.PersonEntity;
 import com.prueba.ms04.repository.IPersonRepository;
 import com.prueba.ms04.service.IPersonService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class PersonServiceImpl implements IPersonService {
     private final IPersonRepository repository;

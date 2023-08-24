@@ -1,16 +1,13 @@
-package com.prueba.ms02.service;
+package com.prueba.ms05.messaging;
 import com.ms.commons.model.XmlModel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class KafkaProducerService {
-
-    private final Logger log = LoggerFactory.getLogger(KafkaProducerService.class);
-
-    public static final String TOPIC = "json_topic";
+    public static final String TOPIC = "xml_topic";
 
     private final KafkaTemplate<String, XmlModel> kafkaTemplate;
 

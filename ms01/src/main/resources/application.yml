@@ -4,18 +4,19 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db_kafka?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: desarrollo
-    password: desarrollo
+    url: jdbc:mysql://${MYSQL_HOST}:3306/db_kafka?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
   jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
 
   kafka:
     consumer:
       auto-offset-reset: earliest
-      bootstrap-servers: localhost:29092
-      group-id: group2
+      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS_CONSUMER}
+      group-id: group01
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:

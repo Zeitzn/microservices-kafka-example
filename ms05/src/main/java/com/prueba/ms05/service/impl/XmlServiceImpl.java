@@ -1,6 +1,8 @@
-package com.prueba.ms05.service;
+package com.prueba.ms05.service.impl;
 
 import com.ms.commons.model.XmlModel;
+import com.prueba.ms05.service.IXmlService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -16,11 +18,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
-public class XmlService {
-    private static final String BASE_XML = "https://test-ms-kafka.s3.amazonaws.com/";
+public class XmlServiceImpl implements IXmlService {
+    private static final String BASE_XML = "https://todoprogramacion.dev/prueba-xml/";
 
     private static final Integer NUMBER_OF_FILES = 5000;
+
+    @Override
     public List<String> getXmlFileNames() {
         List<String> fileNames = new ArrayList<>(NUMBER_OF_FILES);
         for (int i = 0; i < NUMBER_OF_FILES; i++) {
@@ -29,6 +34,8 @@ public class XmlService {
         }
         return fileNames;
     }
+
+    @Override
     public XmlModel read(String xmlFileName) throws IOException, ParserConfigurationException, SAXException {
         URL url = new URL(BASE_XML + xmlFileName);
         InputStream inputStream = url.openStream();

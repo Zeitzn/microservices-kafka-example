@@ -1,4 +1,4 @@
-package com.prueba.ms02.service;
+package com.prueba.ms02.messaging;
 
 import com.ms.commons.model.XmlModel;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,7 @@ public class KafkaConsumerService {
         this.producerService = producerService;
     }
 
-    @KafkaListener(topics = "xml_topic", groupId = "group1")
+    @KafkaListener(topics = "xml_topic", groupId = "group02")
     public void consumerEvent(XmlModel message) {
         log.info("Mensaje recibido -> {}", message);
         producerService.send(message);
