@@ -2,6 +2,10 @@ table {
   width: 100%;
 }
 
-.mat-column-firstName{
-  width:800px !important;
+.colum-header {
+  min-width: 200px;
+}
+
+.text-center {
+  text-align: center;
 }

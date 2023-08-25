@@ -11,71 +11,71 @@
     <table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef> Firstname </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Firstname </th>
         <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
       </ng-container>
       <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef> Lastname </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Lastname </th>
         <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
       </ng-container>
       <ng-container matColumnDef="city">
-        <th mat-header-cell *matHeaderCellDef> City </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> City </th>
         <td mat-cell *matCellDef="let element"> {{element.city}} </td>
       </ng-container>
       <ng-container matColumnDef="country">
-        <th mat-header-cell *matHeaderCellDef> Country </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Country </th>
         <td mat-cell *matCellDef="let element"> {{element.country}} </td>
       </ng-container>
       <ng-container matColumnDef="firstName2">
-        <th mat-header-cell *matHeaderCellDef> Firstname 2 </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Firstname 2 </th>
         <td mat-cell *matCellDef="let element"> {{element.firstName2}} </td>
       </ng-container>
       <ng-container matColumnDef="lastName2">
-        <th mat-header-cell *matHeaderCellDef> Lastname 2 </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Lastname 2 </th>
         <td mat-cell *matCellDef="let element"> {{element.lastName2}} </td>
       </ng-container>
       <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Email </th>
         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
       </ng-container>
       <ng-container matColumnDef="age">
-        <th mat-header-cell *matHeaderCellDef> Age </th>
-        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Age </th>
+        <td class="text-center" mat-cell *matCellDef="let element"> {{element.age}} </td>
       </ng-container>
       <ng-container matColumnDef="random">
-        <th mat-header-cell *matHeaderCellDef> Random </th>
-        <td mat-cell *matCellDef="let element"> {{element.random}} </td>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Random </th>
+        <td class="text-center" mat-cell *matCellDef="let element"> {{element.random}} </td>
       </ng-container>
       <ng-container matColumnDef="randomFloat">
-        <th mat-header-cell *matHeaderCellDef> Random Float </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Random Float </th>
         <td mat-cell *matCellDef="let element"> {{element.randomFloat}} </td>
       </ng-container>
       <ng-container matColumnDef="bool">
-        <th mat-header-cell *matHeaderCellDef> Bool </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Bool </th>
         <td mat-cell *matCellDef="let element"> {{element.bool}} </td>
       </ng-container>
       <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Date </th>
         <td mat-cell *matCellDef="let element"> {{element.date}} </td>
       </ng-container>
       <ng-container matColumnDef="regEx">
-        <th mat-header-cell *matHeaderCellDef> RegEx </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> RegEx </th>
         <td mat-cell *matCellDef="let element"> {{element.regEx}} </td>
       </ng-container>
       <ng-container matColumnDef="enumValue">
-        <th mat-header-cell *matHeaderCellDef> Enum Value </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Enum Value </th>
         <td mat-cell *matCellDef="let element"> {{element.enumValue}} </td>
       </ng-container>
       <ng-container matColumnDef="eltList">
-        <th mat-header-cell *matHeaderCellDef> Elt List </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Elt List </th>
         <td mat-cell *matCellDef="let element"> {{element.eltList}} </td>
       </ng-container>
       <ng-container matColumnDef="createdDate">
-        <th mat-header-cell *matHeaderCellDef> Created Date </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Created Date </th>
         <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
       </ng-container>
       <ng-container matColumnDef="modifiedDate">
-        <th mat-header-cell *matHeaderCellDef> Last Modified </th>
+        <th class="colum-header" mat-header-cell *matHeaderCellDef> Last Modified </th>
         <td mat-cell *matCellDef="let element"> {{element.modifiedDate}} </td>
       </ng-container>
 
