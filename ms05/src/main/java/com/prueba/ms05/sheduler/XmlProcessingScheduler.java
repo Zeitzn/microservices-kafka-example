@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 public class XmlProcessingScheduler {
 
-    private static final String CRON_VALUE = "0 */1 * * * *";//3 min
+    private static final String CRON_VALUE = "0 */3 * * * *";//3 min
     @Autowired
     private IXmlService xmlProcessingService;
 

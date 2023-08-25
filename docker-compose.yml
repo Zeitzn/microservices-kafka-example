@@ -2,19 +2,6 @@ version: '3.8'
 
 services:
 
-  # mysql-db:
-  #   image: mysql:5.7
-  #   container_name: mysql
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root
-  #     MYSQL_DATABASE: db_kafka
-  #     MYSQL_USER: desarrollo
-  #     MYSQL_PASSWORD: desarrollo
-  #   ports:
-  #     - "3307:3306"
-  #   networks:
-  #     - ms-network
-
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     container_name: zookeeper
@@ -90,69 +77,76 @@ services:
     networks:
       - ms-network
 
-  # ms05:
-  #   image: zeitzn/ms05:latest
-  #   container_name: ms05
-  #   depends_on:
-  #     - kafka1
-  #   mem_limit: 800m
-  #   ports:
-  #     - "8085:8085"
-  #   environment:
-  #     KAFKA_BOOTSTRAP_SERVERS_PRODUCER: kafka1:9092
-  #   networks:
-  #     - ms-network
+  ms05:
+    image: zeitzn/ms05:latest
+    container_name: ms05
+    depends_on:
+      - kafka1
+    mem_limit: 800m
+    ports:
+      - "8085:8085"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS_PRODUCER: kafka1:9092
+    networks:
+      - ms-network
 
-  # ms01:
-  #   image: zeitzn/ms01:latest
-  #   container_name: ms01
-  #   restart: always
-  #   depends_on:
-  #     - kafka1
-  #     - mysql-db
-  #   mem_limit: 800m
-  #   ports:
-  #     - "8081:8081"
-  #   environment:
-  #     KAFKA_BOOTSTRAP_SERVERS_CONSUMER: kafka1:9092
-  #     MYSQL_HOST: mysql-db
-  #     MYSQL_USERNAME: desarrollo
-  #     MYSQL_PASSWORD: desarrollo
-  #   networks:
-  #     - ms-network    
+  ms01:
+    image: zeitzn/ms01:latest
+    container_name: ms01
+    restart: always
+    depends_on:
+      - kafka1
+    mem_limit: 800m
+    ports:
+      - "8081:8081"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS_CONSUMER: kafka1:9092
+      MYSQL_HOST: 157.230.233.141
+      MYSQL_USERNAME: usuario-temporal
+      MYSQL_PASSWORD: usuario-temporal
+    networks:
+      - ms-network    
 
-  # ms02:
-  #   image: zeitzn/ms02:latest
-  #   container_name: ms02
-  #   depends_on:
-  #     - kafka1
-  #     - kafka2
-  #   mem_limit: 800m
-  #   ports:
-  #     - "8082:8082"
-  #   environment:
-  #     KAFKA_BOOTSTRAP_SERVERS_CONSUMER: kafka1:9092
-  #     KAFKA_BOOTSTRAP_SERVERS_PRODUCER: kafka2:9093
-  #   networks:
-  #     - ms-network
+  ms02:
+    image: zeitzn/ms02:latest
+    container_name: ms02
+    depends_on:
+      - kafka1
+      - kafka2
+    mem_limit: 800m
+    ports:
+      - "8082:8082"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS_CONSUMER: kafka1:9092
+      KAFKA_BOOTSTRAP_SERVERS_PRODUCER: kafka2:9093
+    networks:
+      - ms-network
 
-  # ms04:
-  #   image: zeitzn/ms04:latest
-  #   container_name: ms04
-  #   depends_on:
-  #     - kafka2
-  #     - mysql-db
-  #   mem_limit: 800m
-  #   ports:
-  #     - "8084:8084"
-  #   environment:
-  #     KAFKA_BOOTSTRAP_SERVERS_CONSUMER: kafka2:9093
-  #     MYSQL_HOST: mysql-db
-  #     MYSQL_USERNAME: desarrollo
-  #     MYSQL_PASSWORD: desarrollo
-  #   networks:
-  #     - ms-network
-  #   restart: on-failure
+  ms04:
+    image: zeitzn/ms04:latest
+    container_name: ms04
+    depends_on:
+      - kafka2
+    mem_limit: 800m
+    ports:
+      - "8084:8084"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS_CONSUMER: kafka2:9093
+      MYSQL_HOST: 157.230.233.141
+      MYSQL_USERNAME: usuario-temporal
+      MYSQL_PASSWORD: usuario-temporal
+    networks:
+      - ms-network
+    restart: on-failure
+
+  angular-front:
+    image: zeitzn/angular-front:latest
+    container_name: angular-front
+    ports:
+      - "80:80"
+    networks:
+      - ms-network
 
 networks:
   ms-network:
+    driver: bridge

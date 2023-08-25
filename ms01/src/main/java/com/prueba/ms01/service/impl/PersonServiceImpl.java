@@ -5,6 +5,7 @@ import com.prueba.ms01.repository.IPersonRepository;
 import com.prueba.ms01.service.IPersonService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -18,6 +19,7 @@ public class PersonServiceImpl implements IPersonService {
         this.repository = repository;
     }
 
+    @Transactional
     @Override
     public void save(PersonEntity person) {
         Optional<PersonEntity> existingPerson = findByFileName(person.getFileName());
