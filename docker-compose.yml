@@ -2,6 +2,19 @@ version: '3.8'
 
 services:
 
+  mysqldb:
+    image: mysql:8.0
+    container_name: mysqldb
+    ports:
+      - 3307:3306
+    networks:
+      - ms-network
+    environment:
+      MYSQL_DATABASE: db_kafka
+      MYSQL_USER: usuario-temporal
+      MYSQL_PASSWORD: usuario-temporal
+      MYSQL_ROOT_PASSWORD: usuario-temporal
+
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     container_name: zookeeper
@@ -101,9 +114,9 @@ services:
       - "8081:8081"
     environment:
       KAFKA_BOOTSTRAP_SERVERS_CONSUMER: kafka1:9092
-      MYSQL_HOST: 157.230.233.141
       MYSQL_USERNAME: usuario-temporal
       MYSQL_PASSWORD: usuario-temporal
+      spring.datasource.url: jdbc:mysql://mysqldb:3306/db_kafka?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     networks:
       - ms-network    
 
@@ -132,9 +145,9 @@ services:
       - "8084:8084"
     environment:
       KAFKA_BOOTSTRAP_SERVERS_CONSUMER: kafka2:9093
-      MYSQL_HOST: 157.230.233.141
       MYSQL_USERNAME: usuario-temporal
       MYSQL_PASSWORD: usuario-temporal
+      spring.datasource.url: jdbc:mysql://mysqldb:3306/db_kafka?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     networks:
       - ms-network
     restart: on-failure
